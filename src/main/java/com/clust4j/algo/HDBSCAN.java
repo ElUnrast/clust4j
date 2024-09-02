@@ -1321,11 +1321,13 @@ final public class HDBSCAN extends AbstractDBSCAN {
 		
 		for(i = 0; i < rootCluster; i++) {
 			cluster = unionFind.find(i);
-			if(cluster <= rootCluster)
+			if(cluster <= rootCluster) {
 				resultArr[i] = NOISE_CLASS;
-			else
+			}
+			else {
 				Integer c = clusterMap.get(cluster);
 				resultArr[i] = (c == null) ? NOISE_CLASS : c;
+			}
 		}
 		
 		return resultArr;
