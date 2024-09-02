@@ -1324,7 +1324,8 @@ final public class HDBSCAN extends AbstractDBSCAN {
 			if(cluster <= rootCluster)
 				resultArr[i] = NOISE_CLASS;
 			else
-				resultArr[i] = clusterMap.get(cluster);
+				Integer c = clusterMap.get(cluster);
+				resultArr[i] = (c == null) ? NOISE_CLASS : c;
 		}
 		
 		return resultArr;
